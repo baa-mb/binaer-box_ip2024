@@ -21,7 +21,7 @@ function neop_schreibe_zch(zch_str: string = "A", color: number) {
             zch_len2 = 1;
         }
     }
-
+    // strip = range.range(0, 4)
     strip.clear()
     strip.show()
     let mycolor = randColor();
@@ -209,15 +209,16 @@ function init_strip() {
 let pixelAnzahl = 0
 let strip_helligkeit = 0
 let arr_tech_matrix: number[] = []
-let strip: neopixel.Strip = null
-let strip2: neopixel.Strip = null
+let range: neopixel.Strip = null
+
 
 // #########################################
 // let myText: string = "Ich bin eine Würfelbox";
 let myText: string = "Ich bin eine Würfel!";
 myText="ABC!BC";
-strip = neopixel.create(DigitalPin.P0, 56 * myText.length, NeoPixelMode.RGB)
-strip2 = neopixel.create(DigitalPin.P1, 64, NeoPixelMode.RGB)
+range = neopixel.create(DigitalPin.P0, 56 * myText.length, NeoPixelMode.RGB)
+let strip = range.range(0, 100)
+// strip2 = neopixel.create(DigitalPin.P1, 64, NeoPixelMode.RGB)
 // #########################################
 
 // auch  scrollspeed
