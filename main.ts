@@ -25,7 +25,9 @@ function neop_schreibe_zch(zch_str: string = "A", color: number) {
     strip.clear()
     strip.show()
     let mycolor = randColor();
-
+    ges_breite=0;
+    let breite:number;
+    let abstand=1;
     for (let o = 0; o < zch_len2; o++) {
         // myColor = randColor();
         let zch2: string;
@@ -42,9 +44,15 @@ function neop_schreibe_zch(zch_str: string = "A", color: number) {
         }
         // strip.clear()
         // strip.show()
+        breite = 5
+        if (zeichen_matrix2.length==9) {
+            breite = zeichen_matrix2[8]
+        }
 
+        ges_breite += (breite + abstand);
 
-        // basic.showString(zch2)
+        basic.showNumber(zeichen_matrix2.length)
+        strip.rotate(8 * (breite + abstand));
         zeichen_matrix2.forEach(function (zahl, zeile) {
             for (let bit2 = 0; bit2 < mx2; bit2++) {
                 // let z = zeile, c = bit2 //7- minus
@@ -64,14 +72,15 @@ function neop_schreibe_zch(zch_str: string = "A", color: number) {
         })
         // strip.show()
         // arr_neop_strips[sss].show();
-
+  
         strip.show();
 
         if (is_type2 == 1) {
             pause(strip_pause)
             // basic.showString(zch2)
         }
-        strip.rotate(8 * 6);
+        // strip.rotate(8 * 6);
+        // strip.rotate(8 * (breite+1));
         // strip.rotate(0);
         // strip.show();
     }
@@ -132,7 +141,7 @@ function init_alphabet() {
         [14, 17, 17, 14, 17, 17, 14, 0],
         [14, 17, 17, 15, 1, 2, 12, 0],//9
 
-        [4, 4, 4, 4, 4, 0, 4, 0], //!
+        [1, 1, 1, 1, 1, 0, 1, 0,1], //!
         [14, 17, 1, 2, 4, 0, 4, 0], //?
         [0, 0, 0, 0, 0, 12, 12, 0], //.
         [0, 0, 0, 0, 0, 12, 12, 4], //,
@@ -205,7 +214,8 @@ let strip2: neopixel.Strip = null
 
 // #########################################
 // let myText: string = "Ich bin eine Würfelbox";
-let myText: string = "Ich bin eine W";
+let myText: string = "Ich bin eine Würfel!";
+myText="ABC!BC";
 strip = neopixel.create(DigitalPin.P0, 56 * myText.length, NeoPixelMode.RGB)
 strip2 = neopixel.create(DigitalPin.P1, 64, NeoPixelMode.RGB)
 // #########################################
@@ -219,7 +229,8 @@ let shift: number = 0
 basic.showIcon(IconNames.SmallSquare)
 arr_tech_matrix = [8, 8]
 strip_helligkeit = 100
-let strip_pause = 250
+// let strip_pause = 250
+let strip_pause = 2000
 // strip.showColor(neopixel.colors(NeoPixelColors.Green))
 // strip.show()
 // strip.rotate(8)
@@ -239,7 +250,7 @@ init_alphabet();
 
 
 neop_schreibe_zch(myText, NeoPixelColors.Red)
-
+let ges_breite=0;
 
 // strip.showRainbow(1, 360)
 
