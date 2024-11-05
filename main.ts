@@ -71,7 +71,7 @@ function neop_schreibe_zch(zch_str: string = "A", color: number) {
             pause(strip_pause)
             // basic.showString(zch2)
         }
-        strip.rotate(8 * 7);
+        strip.rotate(8 * 6);
         // strip.rotate(0);
         // strip.show();
     }
@@ -146,7 +146,7 @@ function init_alphabet() {
 
         [0, 0, 14, 1, 15, 17, 31, 0],//a
         [16, 16, 22, 25, 17, 17, 14, 0], //b
-        [0, 0, 15, 16, 16, 16, 15, 0], //c
+        [0, 0, 14, 16, 16, 16, 14, 0], //c
         [1, 1, 13, 19, 17, 17, 15, 0], //d
         [0, 0, 14, 17, 31, 16, 14, 0], //e
         [2, 5, 4, 14, 4, 4, 4, 4], //f
